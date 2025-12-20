@@ -5,80 +5,70 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinguyen <dinguyen@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/28 10:45:52 by dinguyen          #+#    #+#             */
-/*   Updated: 2025/11/28 15:49:46 by dinguyen         ###   ########.fr       */
+/*   Created: 2025/12/20 12:27:26 by dinguyen          #+#    #+#             */
+/*   Updated: 2025/12/20 13:15:34 by dinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-#include "Bureaucrat.hpp"
 
-Form::Form() : _name("unknown form"), _isSigned(false), _gradeToSign(150), _gradeToExec(150) {
-	std::cout<<"Form default constructor called"<<std::endl;
+Form::Form() : _name("default name"), _isSigned(false), _signG(150), _execG(150) {
+	std::cout<<GRAY<<"Form default constructor called"<<RESET<<std::endl;
 }
 
-Form::Form(const std::string &name, const int signG, const int execG) :
-	_name(name), _isSigned(false), _gradeToSign(signG), _gradeToExec(execG) {
-	if (signG < 1 || execG < 1)
-		throw GradeTooHighE();
-	else if (signG > 150 || execG > 150)
-		throw GradeTooLowE();
-	std::cout<<"Form constructor with parameters called"<<std::endl;
-	std::cout<<"Name : "<<_name<<std::endl;
-	std::cout<<"Form signed : "<<_isSigned<<std::endl;
-	std::cout<<"Grade required to sign : "<<_gradeToSign<<std::endl;
-	std::cout<<"Grade required to execute : "<<_gradeToExec<<std::endl;
+Form::Form(const std::string &name, const int sign, const int exec) : _name(name), _isSigned(false), _signG(sign), _execG(exec) {
+	if (_signG < 1 || _execG < 1)
+		throw	GradeTooHighE();
+	if (_signG > 150 || _execG > 150)
+		throw	GradeTooLowE();
+	std::cout<<GRAY<<"Bureaucrat constructor w/ parameters called: "<<RESET<<std::endl;
+	std::cout<<GRAY<<"Form name  : "<<_name<<RESET<<std::endl;
+	std::cout<<GRAY<<"Is signed  : "<<_isSigned<<RESET<<std::endl;
+	std::cout<<GRAY<<"Sign grade : "<<_signG<<RESET<<std::endl;
+	std::cout<<GRAY<<"Exec grade : "<<_execG<<RESET<<std::endl;
 }
 
-Form::Form(const Form &other) : _name(other._name), _isSigned(other._isSigned),
-	_gradeToSign(other._gradeToSign), _gradeToExec(other._gradeToExec) {
-	std::cout<<"Form copy constructor called"<<std::endl;
+Form::Form(const Form &o) : _name(o._name), _isSigned(o._isSigned), _signG(o._signG), _execG(o._execG) {
+	std::cout<<GRAY<<"Form copy constructor called: "<<RESET<<std::endl;
 }
 
-Form&	Form::operator=(const Form& other) {
-	std::cout<<"Form copy assignment operator called"<<std::endl;
-	if (this != &other ) {
-		_isSigned = other._isSigned;
-	}
+Form&	Form::operator=(const Form &o) {
+	std::cout<<GRAY<<"Bureaucrat copy assignment operator called: "<<RESET<<std::endl;
+	if (this != &o)
+		_isSigned = o._isSigned;
 	return (*this);
 }
 
 Form::~Form() {
-	std::cout<<"Form destructor called"<<std::endl;
+	std::cout<<GRAY<<"Form destructor called"<<RESET<<std::endl;
 }
 
-bool	Form::getIsSigned() const { return (_isSigned); }
-int	Form::getGradeToSign() const { return (_gradeToSign); }
-int	Form::getGradeToExec() const { return (_gradeToExec); }
 const std::string&	Form::getName() const { return (_name); }
+bool				Form::getIsSigned() const { return (_isSigned); }
+int					Form::getSignG() const { return (_signG); }
+int					Form::getExecG() const { return (_execG); }
 
-void	Form::beSigned(const Bureaucrat &b) {
-	if (_isSigned) {
-		throw std::runtime_error("Form already signed!");
-	}
-	if (b.getGrade() <= _gradeToSign) {
-		_isSigned = true;
-	} else {
-		throw Form::GradeTooLowE();
-	}
+void				Form::beSigned(const Bureaucrat &b) {
+	if (_isSigned)
+		throw AlreadySignedE();
+	if (b.getGrade() > _signG)
+		throw GradeTooLowE();
+	_isSigned = true;
 }
 
 const char*	Form::GradeTooHighE::what() const throw() {
-	const char*	result = "Form Grade too High!";
-	return (result);
+	return("Grade too high !");
 }
 
 const char*	Form::GradeTooLowE::what() const throw() {
-	const char*	result = "Form Grade too Low!";
-	return (result);
+	return ("Grade too low !");
 }
 
-std::ostream&	operator<<(std::ostream& os, const
-	Form &f) {
-	os<<"Name : "<<f.getName();
-	os<<"/ is signed : "<<f.getIsSigned();
-	os<<"/ Grade to sign : "<<f.getGradeToSign();
-	os<<"/ Grade to exec : "<<f.getGradeToExec()<<std::endl;
+const char*	Form::AlreadySignedE::what() const throw() {
+	return ("Form already signed !");
+}
+
+std::ostream&	operator<<(std::ostream &os, const Form &o) {
+	os<<BLUE<<"Form : "<<o.getName()<<" - is Signed : "<<o.getIsSigned()<<" - Sign Grade : "<<o.getSignG()<<" - Exec Grade : "<<o.getExecG()<<RESET;
 	return (os);
 }
-

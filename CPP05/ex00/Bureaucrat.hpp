@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinguyen <dinguyen@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/27 07:17:37 by dinguyen          #+#    #+#             */
-/*   Updated: 2025/11/27 11:58:00 by dinguyen         ###   ########.fr       */
+/*   Created: 2025/12/20 10:58:13 by dinguyen          #+#    #+#             */
+/*   Updated: 2025/12/20 11:30:46 by dinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,17 @@
 # include <string>
 # include <exception>
 
+# define RED "\033[1;31m"
+# define GREEN "\033[1;32m"
+# define BLUE "\033[1;34m"
+# define GRAY "\033[0;30m"
+# define RESET "\033[0m"
 
 class	Bureaucrat {
+
+private:
+	const std::string	_name;
+	int					_grade;
 
 public:
 	Bureaucrat();
@@ -34,20 +43,15 @@ public:
 
 	class	GradeTooHighE : public std::exception {
 		public:
-			virtual const char* what() const throw();
+			virtual const char*	what() const throw();
 	};
 
 	class	GradeTooLowE : public std::exception {
 		public:
-			virtual const char* what() const throw();
+			virtual const char*	what() const throw();
 	};
-
-private:
-	const std::string	_name;
-	int					_grade;
-
 };
 
-std::ostream&	operator<<(std::ostream &os, const Bureaucrat &b);
+std::ostream&	operator<<(std::ostream &os, const Bureaucrat &o);
 
 #endif

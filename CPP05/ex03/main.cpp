@@ -6,7 +6,7 @@
 /*   By: dinguyen <dinguyen@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 08:12:31 by dinguyen          #+#    #+#             */
-/*   Updated: 2025/11/30 10:43:10 by dinguyen         ###   ########.fr       */
+/*   Updated: 2025/12/20 16:36:18 by dinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main() {
 		boss.executeAForm(*shrub);
 		delete shrub;
 	} catch (std::exception &e) {
-		std::cout<<"Intern shrubbery creation error: "<<e.what()<<std::endl;
+		std::cout<<RED<<"Intern shrubbery creation error: "<<e.what()<<RESET<<std::endl;
 	}
 	try {
 		AForm*	robot = intern.makeForm("RobotomyRequestForm", "you");
@@ -38,7 +38,7 @@ int	main() {
 		boss.executeAForm(*robot);
 		delete robot;
 	} catch (std::exception &e) {
-		std::cout<<"Intern robotomy creation error: "<<e.what()<<std::endl;
+		std::cout<<RED<<"Intern robotomy creation error: "<<e.what()<<RESET<<std::endl;
 	}
 	try {
 		AForm*	prez = intern.makeForm("PresidentialPardonForm", "me");
@@ -46,13 +46,13 @@ int	main() {
 		boss.executeAForm(*prez);
 		delete prez;
 	} catch (std::exception &e) {
-		std::cout<<"Intern presidential creation error: "<<e.what()<<std::endl;
+		std::cout<<RED<<"Intern presidential creation error: "<<e.what()<<RESET<<std::endl;
 	}
 	try {
 		AForm*	unknown = intern.makeForm("BRINGACOFFEE", "ME");
 		delete unknown;
 	} catch (std::exception &e) {
-		std::cout<<"Intern unknown form error : "<<e.what()<<std::endl;
+		std::cout<<RED<<"Intern unknown form error : "<<e.what()<<RESET<<std::endl;
 	}
 	return (0);
 }

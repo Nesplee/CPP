@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinguyen <dinguyen@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/30 09:48:31 by dinguyen          #+#    #+#             */
-/*   Updated: 2025/11/30 11:21:07 by dinguyen         ###   ########.fr       */
+/*   Created: 2025/12/20 16:15:15 by dinguyen          #+#    #+#             */
+/*   Updated: 2025/12/20 16:33:52 by dinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 class	AForm;
 class	Intern {
 
+private:
+	AForm*	createShrubbery(const std::string &target);
+	AForm*	createRobotomy(const std::string &target);
+	AForm*	createPresidential(const std::string &target);
 
 public:
 	Intern();
@@ -28,9 +32,6 @@ public:
 	Intern&	operator=(const Intern &other);
 	~Intern();
 
-	static AForm*	createShrubbery(const std::string &target);
-	static AForm*	createRobotomy(const std::string &target);
-	static AForm*	createPresidential(const std::string &target);
 	AForm*	makeForm(const std::string &formName, const std::string &target);
 
 	class	InvalidFormNameE : public std::exception {

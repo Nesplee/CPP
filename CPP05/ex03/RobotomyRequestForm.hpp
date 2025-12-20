@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotonyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinguyen <dinguyen@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/30 07:05:35 by dinguyen          #+#    #+#             */
-/*   Updated: 2025/11/30 10:10:17 by dinguyen         ###   ########.fr       */
+/*   Created: 2025/12/20 13:51:55 by dinguyen          #+#    #+#             */
+/*   Updated: 2025/12/20 14:02:50 by dinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ private:
 	std::string	_target;
 
 public:
-	RobotomyRequestForm();
 	RobotomyRequestForm(const std::string &target);
 	RobotomyRequestForm(const RobotomyRequestForm &other);
 	RobotomyRequestForm&	operator=(const RobotomyRequestForm &other);
 	~RobotomyRequestForm();
+
 	void	execute(const Bureaucrat &b) const;
 };
 

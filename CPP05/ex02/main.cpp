@@ -6,7 +6,7 @@
 /*   By: dinguyen <dinguyen@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 08:12:31 by dinguyen          #+#    #+#             */
-/*   Updated: 2025/11/30 10:15:05 by dinguyen         ###   ########.fr       */
+/*   Updated: 2025/12/20 14:13:22 by dinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int	main() {
 	try {
 		Bureaucrat b("ErrorGuy", 0);
 	} catch (std::exception &e) {
-		std::cout<<"Error Bureaucrat creation : "<<e.what()<<std::endl;
+		std::cout<<RED<<"Error Bureaucrat creation : "<<e.what()<<RESET<<std::endl;
 	}
 	try {
 		Bureaucrat b("ErrorGuy", 151);
 	} catch (std::exception &e) {
-		std::cout << "Error Bureaucrat creation : " << e.what() << std::endl;
+		std::cout<<RED<<"Error Bureaucrat creation : "<<e.what()<<RESET<<std::endl;
 	}
 	try {
 		ShrubberyCreationForm	f("garden");

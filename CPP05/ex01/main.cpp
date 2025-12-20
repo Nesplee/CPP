@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinguyen <dinguyen@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/27 08:12:31 by dinguyen          #+#    #+#             */
-/*   Updated: 2025/11/28 15:45:57 by dinguyen         ###   ########.fr       */
+/*   Created: 2025/12/20 11:24:50 by dinguyen          #+#    #+#             */
+/*   Updated: 2025/12/20 13:14:43 by dinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
@@ -17,22 +18,22 @@ int	main() {
 	try {
 		Bureaucrat b("ErrorGuy", 0);
 	} catch (std::exception &e) {
-		std::cout << "Error Bureaucrat creation : " << e.what() << std::endl;
+		std::cout<<RED<<"Error Bureaucrat creation : "<<e.what()<<RESET<<std::endl;
 	}
 	try {
 		Bureaucrat b("ErrorGuy", 151);
 	} catch (std::exception &e) {
-		std::cout << "Error Bureaucrat creation : " << e.what() << std::endl;
+		std::cout<<RED<<"Error Bureaucrat creation : "<<e.what()<<RESET<<std::endl;
 	}
 	try {
 		Form f("FormError", 0, 10);
 	} catch (std::exception &e) {
-		std::cout << "Error Form creation : " << e.what() << std::endl;
+		std::cout<<RED<<"Error Form creation : "<<e.what()<<RESET<<std::endl;
 	}
 	try {
 		Form f("FormError", 10, 151);
 	} catch (std::exception &e) {
-		std::cout << "Error Form creation : " << e.what() << std::endl;
+		std::cout<<RED<<"Error Form creation : "<<e.what()<<RESET<<std::endl;
 	}
 	try {
 		Bureaucrat b1("LowGuy", 150);
