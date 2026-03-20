@@ -25,7 +25,7 @@ static int	g_failures = 0;
 
 int main(int, char**)
 {
-	(void)MAX_VAL; // on n'utilise plus le miroir aléatoire : tests déterministes
+	(void)MAX_VAL;
 
 	// 1) Constructeur par défaut
 	{
@@ -94,14 +94,14 @@ int main(int, char**)
 		Array<int> a(3);
 
 		try {
-			a[3] = 0; // out-of-bounds
+			a[3] = 0;
 			CHECK(false, "operator[]: index==size throws");
 		} catch (std::exception const&) {
 			CHECK(true, "operator[]: index==size throws");
 		}
 
 		try {
-			a[(unsigned int)-1] = 0; // out-of-bounds via conversion
+			a[(unsigned int)-1] = 0;
 			CHECK(false, "operator[]: negative index converted throws");
 		} catch (std::exception const&) {
 			CHECK(true, "operator[]: negative index converted throws");

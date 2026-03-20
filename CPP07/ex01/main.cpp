@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dinguyen <dinguyen@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: nguyendimitri <nguyendimitri@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 08:29:50 by dinguyen          #+#    #+#             */
-/*   Updated: 2025/12/17 08:30:42 by dinguyen         ###   ########.fr       */
+/*   Updated: 2026/03/19 10:42:24 by nguyendimit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
+#include <iostream>
 
 void	print(int x) {
 	std::cout<<x<<std::endl;

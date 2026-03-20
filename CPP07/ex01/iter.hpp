@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dinguyen <dinguyen@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: nguyendimitri <nguyendimitri@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 08:05:15 by dinguyen          #+#    #+#             */
-/*   Updated: 2025/12/17 08:29:03 by dinguyen         ###   ########.fr       */
+/*   Updated: 2026/03/19 10:37:36 by nguyendimit      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-
-#include <iostream>
 
 template<typename T>
 void	iter(T* array, const int length, void (*func)(T)) {
