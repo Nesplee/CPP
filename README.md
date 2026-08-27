@@ -9,6 +9,7 @@
     <a href="https://42lausanne.ch"><img src="https://img.shields.io/badge/42-Lausanne-000000?style=for-the-badge&logo=42&logoColor=white" alt="42 Lausanne" /></a>
     <img src="https://img.shields.io/badge/C%2B%2B98-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++98" />
     <img src="https://img.shields.io/badge/Norminette-passing-2ea44f?style=for-the-badge" alt="Norm passing" />
+    <img src="https://img.shields.io/badge/grade-100%2F100-5ec8c5?style=for-the-badge" alt="Grade 100/100" />
   </p>
 
   <p>
@@ -176,9 +177,9 @@ CPP/
 <h2 align="center">Result</h2>
 
 <div align="center">
-
-<sup><i>All ten modules (CPP00 – CPP09) completed. Last module validated on May 2, 2026.</i></sup>
-
+  <img src=".assets/100.png" alt="cpp grade" width="220px" />
+  <br/>
+  <sup><i>All ten modules (CPP00 – CPP09) completed. Last module validated on May 2, 2026.</i></sup>
 </div>
 
 <img src=".assets/divider.png" width="100%" alt="" />
